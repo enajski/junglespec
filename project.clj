@@ -4,8 +4,11 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.8.0"]
+  :dependencies [[org.clojure/clojure "1.9.0-alpha7"]
                  [org.clojure/clojurescript "1.9.89" :scope "provided"]
+                 [cljs-http "0.1.41"]
+                 [leipzig "0.10.0"]
+                 [overtone "LATEST"]
                  [com.cognitect/transit-clj "0.8.285"]
                  [ring "1.4.0"]
                  [ring/ring-defaults "0.2.0"]
@@ -13,14 +16,20 @@
                  [ring.middleware.logger "0.5.0"]
                  [compojure "1.5.0"]
                  [environ "1.0.3"]
-                 [reagent "0.6.0-rc"]]
+                 [reagent "0.6.0-rc"]
+                 [org.clojure/data.json "0.2.6"]]
 
   :plugins [[lein-cljsbuild "1.1.3"]
-            [lein-environ "1.0.3"]]
+            [lein-environ "1.0.3"]
+            [lein-git-deps "0.0.1-SNAPSHOT"]]
+
+  :git-dependencies [["https://github.com/overtone/overtone.git"]]
+
+  :jvm-opts ^:replace []
 
   :min-lein-version "2.6.1"
 
-  :source-paths ["src/clj" "src/cljs" "src/cljc"]
+  :source-paths ["src/clj" "src/cljs" "src/cljc" ".lein-git-deps/overtone/src"]
 
   :test-paths ["test/clj" "test/cljc"]
 
@@ -106,7 +115,8 @@
              {:dependencies [[figwheel "0.5.4-4"]
                              [figwheel-sidecar "0.5.4-4"]
                              [com.cemerick/piggieback "0.2.1"]
-                             [org.clojure/tools.nrepl "0.2.12"]]
+                             [org.clojure/tools.nrepl "0.2.12"]
+                             [org.clojure/test.check "0.9.0"]]
 
               :plugins [[lein-figwheel "0.5.4-4"]
                         [lein-doo "0.1.6"]]
