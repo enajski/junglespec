@@ -6,9 +6,7 @@
             [ring.middleware.gzip :refer [wrap-gzip]]
             [ring.middleware.logger :refer [wrap-with-logger]]
             [environ.core :refer [env]]
-            [ring.adapter.jetty :refer [run-jetty]]
-            ;[junglespec.player :refer [current-song]]
-            [clojure.data.json :as JSON])
+            [ring.adapter.jetty :refer [run-jetty]])
   (:gen-class))
 
 
@@ -18,10 +16,6 @@
              {:status  200
               :headers {"Content-Type" "text/html; charset=utf-8"}
               :body    (io/input-stream (io/resource "public/index.html"))})
-           (GET "/song" _
-             {:status  200
-              :headers {"Content-Type" "application/json"}})
-              ;:body    (str @current-song)})
            (resources "/"))
 
 (def http-handler
