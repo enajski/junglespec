@@ -8,11 +8,12 @@
                               ::tempo
                               ::meter]))
 
-(s/def ::song-key #{[scale/C scale/major] [scale/D scale/dorian]})
+(s/def ::song-key #{[scale/C scale/major]
+                    [scale/D scale/dorian]})
 
-(s/def ::tempo (s/int-in 145 190))
+(s/def ::tempo (s/int-in 160 200)) ; BPM
 
-(s/def ::meter #{8/8 7/8})
+(s/def ::meter #{8/8})
 
 (s/def ::arrangement (s/cat :intro ::intro
                             :verse ::verse
@@ -20,12 +21,13 @@
                             :reprise ::verse
                             :ending ::intro))
 
-(s/def ::intro (s/keys :req [::synth]
-                       :opt [::bass ::samples]))
+(s/def ::intro (s/keys :req [::synth ::bass]
+                       :opt [::samples]))
 
-(s/def ::verse (s/keys :req [::break ::synth ::bass ::samples]))
+(s/def ::verse (s/keys :req [::break ::synth
+                             ::bass ::samples]))
 
-(s/def ::duration #{1/4 2/4 4/4})
+(s/def ::duration #{2/4 4/4 8/4})
 (s/def ::break-duration #{2/4})
 
 (s/def ::synth (s/+ ::note))
@@ -43,12 +45,12 @@
                          :duration ::break-duration))
 
 (s/def ::drum-sound #{:pu :ci :ta :ty})
+(s/def ::drum-sound-extended #{:pu :ci :cii :ta :taa :ty})
 
 (s/def ::pitch (s/int-in 0 12))
 
 (s/def ::url string?)
 
+(s/def ::pure-spans #{2 4 8 16})
 
-
-
-
+(s/def ::chord-progression (s/+ (s/cat :root #{:F3} :degr (s/+ #{1 2 :6b :1c :sus4}))))

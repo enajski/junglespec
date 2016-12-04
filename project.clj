@@ -4,11 +4,15 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.9.0-alpha7"]
+  :dependencies [[org.clojure/clojure "1.9.0-alpha8"]
                  [org.clojure/clojurescript "1.9.89" :scope "provided"]
                  [cljs-http "0.1.41"]
                  [leipzig "0.10.0"]
                  [overtone "LATEST"]
+                 [mud "0.1.2-SNAPSHOT"]
+                 [cljs-bach "0.2.0"]
+                 [overtone.orchestra "0.1.0-SNAPSHOT"]
+                 [quil "2.5.0"]
                  [com.cognitect/transit-clj "0.8.285"]
                  [ring "1.4.0"]
                  [ring/ring-defaults "0.2.0"]
@@ -53,7 +57,7 @@
                 ;; Alternatively, you can configure a function to run every time figwheel reloads.
                 ;; :figwheel {:on-jsload "junglespec.core/on-figwheel-reload"}
 
-                :compiler {:main junglespec.core
+                :compiler {:main junglespec.client
                            :asset-path "js/compiled/out"
                            :output-to "resources/public/js/compiled/junglespec.js"
                            :output-dir "resources/public/js/compiled/out"
@@ -68,7 +72,7 @@
                {:id "min"
                 :source-paths ["src/cljs" "src/cljc"]
                 :jar true
-                :compiler {:main junglespec.core
+                :compiler {:main junglespec.client
                            :output-to "resources/public/js/compiled/junglespec.js"
                            :output-dir "target"
                            :source-map-timestamp true
