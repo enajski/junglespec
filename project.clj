@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
   :dependencies [[org.clojure/clojure "1.9.0-alpha8"]
-                 [org.clojure/clojurescript "1.9.89" :scope "provided"]
+                 [org.clojure/clojurescript "1.9.293" :scope "provided"]
                  [cljs-http "0.1.41"]
                  [leipzig "0.10.0"]
                  [overtone "LATEST"]

@@ -1,15 +1,19 @@
 (ns junglespec.spec
-  (:require #?(:clj [clojure.spec :as s]
-               :cljs [cljs.spec :as s]
-                    [leipzig.scale :as scale])))
+  (:require
+    #?(:clj [clojure.spec :as s]
+       :cljs [cljs.spec :as s])
+    #?(:clj [leipzig.scale :as scale]
+       :cljs [leipzig.scale :as scale])))
 
-(s/def ::note (s/cat :pitch (s/int-in 0 24)
+(s/def ::note (s/cat :pitch (s/int-in 0 12)
                      :duration #{2 4}))
 
 (s/def ::bass-seq (s/coll-of ::note :kind vector?))
 
 (s/def ::scale #{[scale/C scale/minor scale/low scale/low]
                  [scale/F scale/minor scale/low scale/low]})
+
+(s/def ::tempo #{172})
 
 (s/def ::amen-sounds #{:pu :ci :ta :cii :cita :pupu})
 
@@ -22,6 +26,20 @@
         :doublekick (s/coll-of #{:pupu} :count 1)))
 
 (s/def ::amen-seq (s/coll-of ::amen-sound :min-count 32))
+
+;; Should be paths to samples or buffers
+(s/def ::ragga-sample (s/cat :note #{"/Users/dev/Music/ragga_samples/all_junglists.wav"
+                                     "/Users/dev/Music/ragga_samples/all_ganjaman_let_loose.wav"
+                                     "/Users/dev/Music/ragga_samples/6_million_wayz(1).wav"
+                                     "/Users/dev/Music/ragga_samples/alrightholdon.wav"
+                                     "/Users/dev/Music/ragga_samples/bad_bwoyy.wav"
+                                     "/Users/dev/Music/ragga_samples/dibbydibby_soun.wav"
+                                     "/Users/dev/Music/ragga_samples/heyheyheyhey.wav"
+                                     "/Users/dev/Music/ragga_samples/imakehits.wav"
+                                     "/Users/dev/Music/ragga_samples/justcome.wav"}
+                             :duration (s/int-in 8 32)))
+
+(s/def ::ragga-seq (s/coll-of ::ragga-sample))
 
 (s/def ::breakdown (s/keys :req [::bass-seq ::ragga-seq]))
 
