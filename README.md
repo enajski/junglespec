@@ -14,7 +14,7 @@ As of 2016/12/05 needs the latest GitHub version of overtone to work with spec.
 
 `conj.clj` has the example composition from the talk. Eval it it your favourite editor or in the REPL to play.
 
-This depends on having breakbeat and ragga samples as wav files. These are not bundled in the repo, you can download them separately [HERE](https://enajski.pl/junglespec_samples.zip). Change the paths of `ragga-sounds` and `breaks` accordingly.
+This depends on having breakbeat and ragga samples as wav files. These are not bundled in the repo, you can download them separately [HERE](http://enajski.pl/junglespec_samples.zip). Change the paths of `ragga-sounds` and `breaks` accordingly.
 
 ### Web
 
