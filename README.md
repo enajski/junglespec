@@ -4,7 +4,9 @@
 
 Based on ideas preseted in my Conj 2016 talk: [https://www.youtube.com/watch?v=404UXttr8kw](Composing music with clojure.spec)
 
-## Development
+Slides: [http://www.slideshare.net/WojciechFranke/wojciech-franke-composing-music-with-clojurespec-clojureconj-2016](Slides)
+
+## Playing
 
 As of 2016/12/05 needs the latest GitHub version of overtone to work with spec.
 
@@ -16,6 +18,8 @@ Open a terminal and type `lein repl` to start a Clojure REPL
 `conj.clj` has the example composition from the talk.
 
 This depends on having breakbeat and ragga samples as wav files.
+
+### Web
 
 To start the cljs documentation in the REPL, type
 

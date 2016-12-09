@@ -28,15 +28,15 @@
 (s/def ::amen-seq (s/coll-of ::amen-sound :min-count 32))
 
 ;; Should be paths to samples or buffers
-(s/def ::ragga-sample (s/cat :note #{"/Users/dev/Music/ragga_samples/all_junglists.wav"
-                                     "/Users/dev/Music/ragga_samples/all_ganjaman_let_loose.wav"
-                                     "/Users/dev/Music/ragga_samples/6_million_wayz(1).wav"
-                                     "/Users/dev/Music/ragga_samples/alrightholdon.wav"
-                                     "/Users/dev/Music/ragga_samples/bad_bwoyy.wav"
-                                     "/Users/dev/Music/ragga_samples/dibbydibby_soun.wav"
-                                     "/Users/dev/Music/ragga_samples/heyheyheyhey.wav"
-                                     "/Users/dev/Music/ragga_samples/imakehits.wav"
-                                     "/Users/dev/Music/ragga_samples/justcome.wav"}
+(s/def ::ragga-sample (s/cat :note #{"all_junglists"
+                                     "all_ganjaman_let_loose"
+                                     "6_million_wayz(1)"
+                                     "alrightholdon"
+                                     "bad_bwoyy"
+                                     "dibbydibby_soun"
+                                     "heyheyheyhey"
+                                     "imakehits"
+                                     "justcome"}
                              :duration (s/int-in 8 32)))
 
 (s/def ::ragga-seq (s/coll-of ::ragga-sample))

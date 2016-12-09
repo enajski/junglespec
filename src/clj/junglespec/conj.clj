@@ -19,11 +19,9 @@
   "Load your vocal samples for flavour."
   (load-samples "/Users/dev/Music/ragga_samples/*.wav"))
 
-(:path (first ragga-sounds))
-
 (def breaks
   "Load your breakbeats."
-  (load-samples "/Users/dev/Music/real_jungle_loops_by_noise_relations/*.wav"))
+  (load-samples "/Users/dev/Music/breakbeats/*.wav"))
 
 (defn unzip
   "Splits a collection in two."
@@ -53,9 +51,15 @@
   (stereo-partial-player buf 1 start end))
 
 ;; Three variations on the amen break that play nicely with each other.
-(def amen1 (nth breaks 32))
-(def amen2 (nth breaks 31))
-(def amen3 (nth breaks 33))
+(defn find-sample
+  [sample-name samples]
+  (->> samples
+       (filter #(re-find (re-pattern sample-name) (:path %)))
+       first))
+
+(def amen1 (find-sample "035" breaks))
+(def amen2 (find-sample "034" breaks))
+(def amen3 (find-sample "036" breaks))
 
 ;; Amen dispatch
 (defmulti amen :note)
@@ -82,7 +86,7 @@
 (defmethod l/play-note :sample [{sound :note duration :duration}]
   (if (buffer? sound)
     (slicer sound 0 1)
-    (slicer (first (filter #(= sound (:path %)) ragga-sounds)) 0 1)))
+    (slicer (find-sample sound ragga-sounds) 0 1)))
 
 (defn play-bass [{:keys [pitch duration]}]
   (let [cutoff (make (s/int-in 150 290))]
