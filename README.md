@@ -2,9 +2,9 @@
 
 ## Overview
 
-Based on ideas preseted in my Conj 2016 talk: [https://www.youtube.com/watch?v=404UXttr8kw](Composing music with clojure.spec)
+Based on ideas preseted in my Conj 2016 talk: [Composing music with clojure.spec](https://www.youtube.com/watch?v=404UXttr8kw)
 
-Slides: [http://www.slideshare.net/WojciechFranke/wojciech-franke-composing-music-with-clojurespec-clojureconj-2016](Slides)
+[Slides](http://www.slideshare.net/WojciechFranke/wojciech-franke-composing-music-with-clojurespec-clojureconj-2016)
 
 ## Playing
 
@@ -14,7 +14,7 @@ As of 2016/12/05 needs the latest GitHub version of overtone to work with spec.
 
 `conj.clj` has the example composition from the talk. Eval it it your favourite editor or in the REPL to play.
 
-This depends on having breakbeat and ragga samples as wav files. These are not bundled in the repo, you can download them separately [https://enajski.pl/junglespec_samples.zip](HERE). Change the paths of `ragga-sounds` and `breaks` accordingly.
+This depends on having breakbeat and ragga samples as wav files. These are not bundled in the repo, you can download them separately [HERE](https://enajski.pl/junglespec_samples.zip). Change the paths of `ragga-sounds` and `breaks` accordingly.
 
 ### Web
 
