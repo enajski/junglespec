@@ -12,12 +12,9 @@ As of 2016/12/05 needs the latest GitHub version of overtone to work with spec.
 
 `lein git-deps`
 
-Open a terminal and type `lein repl` to start a Clojure REPL
-(interactive prompt).
+`conj.clj` has the example composition from the talk. Eval it it your favourite editor or in the REPL to play.
 
-`conj.clj` has the example composition from the talk.
-
-This depends on having breakbeat and ragga samples as wav files.
+This depends on having breakbeat and ragga samples as wav files. These are not bundled in the repo, you can download them separately [https://enajski.pl/junglespec_samples.zip](HERE). Change the paths of `ragga-sounds` and `breaks` accordingly.
 
 ### Web
 
